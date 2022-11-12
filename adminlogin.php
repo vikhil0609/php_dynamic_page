@@ -20,13 +20,13 @@
       session_start();
       $showError = false;
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      
+
 
             // collect value of input field
       
             $username = $_POST["username"];
             $password = $_POST["password"];
-      
+
             $sql = "SELECT password FROM users_data WHERE username = '$username'";
             $result = $conn->query($sql);
 
@@ -48,7 +48,7 @@
       ?>
       <?php
       if ($showError) {
-      
+
             echo '<div class="alert alert-danger" role="alert">
                   ' . $showError . ' 
                 </div> ';
