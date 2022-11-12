@@ -17,62 +17,49 @@
 <body>
 
       <?php
-      // session_start();
-      // $showError = false;
-      // $servername = "localhost";
-      // $username = "root";
-      // $password = "";
-      
-      // $database = "users";
-      
-      // // Create a connection 
-      // $conn = mysqli_connect(
-      //       $servername,
-      //       $username,
-      //       $password,
-      //       $database
-      // );
-      // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      session_start();
+      $showError = false;
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
 
-      //       // collect value of input field
+            // collect value of input field
       
-      //       $username = $_POST["username"];
-      //       $password = $_POST["password"];
+            $username = $_POST["username"];
+            $password = $_POST["password"];
       
-      //       $sql = "SELECT password FROM users_data WHERE username = '$username'";
-      //       $result = $conn->query($sql);
-      
-      //       if ($result->num_rows > 0) {
-      //             // output data of each row
-      //             $_SESSION['is-user-logged'] = 1;
-      //             while ($row = $result->fetch_assoc()) {
-      //                   if ($row["password"] == $password) {
-      //                         header("Location:/coursewebsite/home.php");
-      //                   } else {
-      //                         $showError = "User name or password does not match";
-      //                   }
-      //             }
-      //       } else {
-      //             $showError = "ACCOUNT DOES NOT EXISTS";
-      //       }
-      //       $conn->close();
-      // }
+            $sql = "SELECT password FROM users_data WHERE username = '$username'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                  // output data of each row
+                  $_SESSION['is-user-logged'] = 1;
+                  while ($row = $result->fetch_assoc()) {
+                        if ($row["password"] == $password) {
+                              header("Location:/coursewebsite/admincourses.php");
+                        } else {
+                              $showError = "User name or password does not match";
+                        }
+                  }
+            } else {
+                  $showError = "ACCOUNT DOES NOT EXISTS";
+            }
+            $conn->close();
+      }
       ?>
       <?php
-      // if ($showError) {
+      if ($showError) {
       
-      //       echo '<div class="alert alert-danger" role="alert">
-      //             ' . $showError . ' 
-      //           </div> ';
-      // }
+            echo '<div class="alert alert-danger" role="alert">
+                  ' . $showError . ' 
+                </div> ';
+      }
       ?>
 
       <div class="container-fluid px-0">
             <div class="square">
 
                   <div class="container p-4">
-                        <form method="post" action="index.php">
+                        <form method="post" action="adminlogin.php">
                               <div class="mb-3 text-center">
                                     <a class="text-dark text-decoration-none" href="/">
                                           <i class="fa-solid fa-arrow-left-long d-flex m-0"></i>
