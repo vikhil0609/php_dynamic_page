@@ -19,6 +19,19 @@
       <?php
       session_start();
       $showError = false;
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+
+      $database = "users";
+
+      // Create a connection 
+      $conn = mysqli_connect(
+            $servername,
+            $username,
+            $password,
+            $database
+      );
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
@@ -27,7 +40,7 @@
             $username = $_POST["username"];
             $password = $_POST["password"];
 
-            $sql = "SELECT password FROM users_data WHERE username = '$username'";
+            $sql = "SELECT password FROM admin_users WHERE username = '$username'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

@@ -14,8 +14,17 @@ if ($result->num_rows > 0) {
 ?>
 <div class="container bg-light bg-gradient">
       <h1 class="mt-4 pt-2 text-center">Home</h1>
+      <p class="text-justify">
+      Welcome to Online Courses. Here, you will provide with
+       different types of courses in various domains such as 
+       technology, culture, hisory, social studies, mathematics,
+        fashion, etc. Our courses are taught by some of the best 
+        and most experienced people in their respective industry's
+         so that you can have a chance to shine as them. What are 
+         you waiting for? Let's get started.
+      </p>
       <hr class="text-center">
-      <h3 class="me-3">Recently Added</h3>
+      <h3 class="me-3">Recently Added COURSES</h3>
       <div class="container">
             <div class="row">
                   <?php

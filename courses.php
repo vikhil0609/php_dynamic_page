@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
                   <div class="col-sm-4">
                         <div class="card my-3">
                               <div class="card-body">
-                                    <h5 class="card-title">
+                                    <h5 class="card-title text-center">
                                           <?php echo $rows['course_name']; ?>
                                     </h5>
                                     <p class="mb-0">
